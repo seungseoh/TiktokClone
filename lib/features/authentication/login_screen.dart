@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/features/authentication/login_screen.dart';
-import 'package:tiktok_clone/features/authentication/widgets/auth_button.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
-  void onLoginTap(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const LoginScreen(),
-      ),
-    );
+  void onSignUpTap(BuildContext context) {
+    Navigator.of(context).pop();
   }
 
   @override
@@ -24,11 +18,10 @@ class SignUpScreen extends StatelessWidget {
             horizontal: Sizes.size40,
           ),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
             children: const [
               Gaps.v80,
               Text(
-                "Sign up for TikTok",
+                "Log in to TikTok",
                 style: TextStyle(
                   fontSize: Sizes.size24,
                   fontWeight: FontWeight.w700,
@@ -36,16 +29,13 @@ class SignUpScreen extends StatelessWidget {
               ),
               Gaps.v20,
               Text(
-                "Create a profile, follow other accounts, make your own videos, and more.",
+                "Manage your account, check notifications, comment on videos, and more.",
                 style: TextStyle(
                   fontSize: Sizes.size16,
                   color: Colors.black45,
                 ),
                 textAlign: TextAlign.center,
               ),
-              Gaps.v40,
-              AuthButton(text: "Use Phone or Email"),
-              AuthButton(text: "Continue with Apple"),
             ],
           ),
         ),
@@ -61,16 +51,16 @@ class SignUpScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Already have an account?',
+                "Don't have an account?",
                 style: TextStyle(
                   fontSize: Sizes.size16,
                 ),
               ),
               Gaps.h5,
               GestureDetector(
-                onTap: () => onLoginTap(context),
+                onTap: () => onSignUpTap(context),
                 child: Text(
-                  'Log in',
+                  "Sign up",
                   style: TextStyle(
                     fontSize: Sizes.size16,
                     fontWeight: FontWeight.w600,
